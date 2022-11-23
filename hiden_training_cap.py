@@ -2,7 +2,7 @@ import cv2 as cv
 import os
 import numpy as np
 
-data_ruta='C:/Users/Intellisys/Desktop/universidad-pro/data'
+data_ruta='C:/Users/vladi/OneDrive/Desktop/Sistema-Lista/data'
 list_data=os.listdir(data_ruta)
 ids =[]
 face_data=[]

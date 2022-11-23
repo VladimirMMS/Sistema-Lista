@@ -2,15 +2,16 @@ import cv2 as cv
 import os
 import imutils
 
-model='data/FotosVladimir'
-ruta1='C:/Users/Intellisys/Desktop/universidad-pro'
+
+model='data/Vladimir'
+ruta1='C:/Users/vladi/OneDrive/Desktop/Sistema-Lista'
 ruta_completa=ruta1+'/{}'.format(model)
 if not os.path.exists(ruta_completa):
     os.makedirs(ruta_completa)
 
-ruidos=cv.CascadeClassifier(r"C:\Users\Intellisys\Desktop\opencv\data\haarcascades\haarcascade_frontalface_default.xml")
+ruidos=cv.CascadeClassifier(r"C:/Users/vladi/OneDrive/Desktop/opencv/data/haarcascades/haarcascade_frontalface_default.xml")
 camara= cv.VideoCapture(0)
-id=0
+id=350
 while True:
     respuesta,captura=camara.read()
     if respuesta==False: break
@@ -26,7 +27,7 @@ while True:
         cv.imwrite(ruta_completa+'/imagen_{}.jpg'.format(id), face_captured)
         id=id+1
     cv.imshow("Resultado rostro", captura)
-    if id == 100:
+    if id == 500:
         break
 
 camara.release()
