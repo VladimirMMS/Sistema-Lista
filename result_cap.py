@@ -10,6 +10,7 @@ def scan_student():
     ruidos=cv.CascadeClassifier(r"C:\Users\vladi\OneDrive\Desktop\opencv\data\haarcascades\haarcascade_frontalface_default.xml")
     Camera=cv.VideoCapture(0)
 
+    Camera = cv.VideoCapture(0)
 
     while True:
         response, frame = Camera.read()
