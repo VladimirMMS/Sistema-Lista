@@ -1,12 +1,12 @@
 import cv2 as cv
 import os
 
-data = r"C:\Users\intellisys\Desktop\pyhton\reconocimiento\data"
+data = r":/Users/User/Desktop/Universidad/Tercer Ciclo/Pensamiento Critico/Proyecto final/Sistema-Lista/data"
 dataList = os.listdir(data)
 
 trainingModel = cv.face.EigenFaceRecognizer_create()
-trainingModel.read(r"C:\Users\Intellisys\Desktop\universidad-pro\training_eigen_face_recognizer.xml")
-ruidos = cv.CascadeClassifier(r"C:\Users\Intellisys\Desktop\opencv\data\haarcascades\haarcascade_frontalface_default.xml")
+trainingModel.read(r"C:\Users\User\Desktop\Universidad\Tercer Ciclo\Pensamiento Critico\Proyecto final\Sistema-Lista\training_eigen_face_recognizer.xml")
+ruidos = cv.CascadeClassifier(r"C:\Users\User\opencv\data\haarcascades\haarcascade_frontalface_default.xml")
 
 Camera = cv.VideoCapture(0)
 
