@@ -1,9 +1,11 @@
 import os
-from dotenv import load_dotenv
 import psycopg2
+from dotenv import load_dotenv
 
 from StudentD import StudentD
 from listD import ListD
+from models.studentM import Student
+from models.listM import ListM
 
 load_dotenv()
 
@@ -29,11 +31,11 @@ class Database:
         self.list = ListD(self.conn, self.cursor)
         self.student.createTable()
         self.list.createTable()
+        print('connected')
 
     def close(self):
         self.conn.close()
         self.cursor.close()
-
 
 database = Database()
 # database.close()

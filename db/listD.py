@@ -1,4 +1,3 @@
-from models.studentM import Student
 
 
 class ListD:
