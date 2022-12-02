@@ -43,6 +43,6 @@ class StudentD:
         self.conn.commit()
 
     def deleteStudent(self, student):
-        self.cursor.execute('DELETE FROM student WHERE id = ?',
+        self.cursor.execute('DELETE * FROM student WHERE id = ?',
                             ([student.id]))
         self.conn.commit()
