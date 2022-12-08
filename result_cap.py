@@ -22,8 +22,10 @@ def scan_student():
             faceCapture=cv.resize(faceCapture, (160, 160), interpolation=cv.INTER_CUBIC)
             result = trainingModel.predict(faceCapture)
             cv.putText(frame, '{}'.format(result), (x, y-5), 1, 1.2, (0, 255, 0), 2, cv.LINE_AA)
-            if result[1] < 10000:
-                cv.putText(frame, '{}'.format(dataList[result[0]]), (x, y-20), 1, 1.3, (0, 255, 0), 2, cv.LINE_AA)            
+            if result[1] < 5500:
+                name = dataList[result[0]].split("-")[0]
+                print(dataList[result[0]])
+                cv.putText(frame, '{}'.format(name), (x, y-20), 1, 1.3, (0, 255, 0), 2, cv.LINE_AA)            
                 cv.rectangle(frame, (x,y), (x+e1, y+e2), (255, 0, 0), 2)
             else:
                 cv.putText(frame, ('No encontrado'), (x, y-20), 2, 1.1, (0, 255, 0), 2, cv.LINE_AA)            
