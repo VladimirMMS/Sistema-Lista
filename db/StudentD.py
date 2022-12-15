@@ -14,6 +14,7 @@ class StudentD:
                 name TEXT,
                 last_name TEXT,
                 age INTEGER,
+                gender TEXT,
                 grade INTEGER,
                 mail TEXT,
                 date DATE NOT NULL default now()
@@ -29,9 +30,19 @@ class StudentD:
 
         return studets
 
+    def getStudentEmail(self, student):
+        self.cursor.execute(
+            'SELECT email FROM student WHERE matricula = ?', (student.matricula))
+        studets = []
+        for id, name, age, grade in self.cursor.fetchall():
+            studets.append(Student(id, name, age, grade))
+
+        return studets
+
     def setStudents(self, student):
-        self.cursor.execute('INSERT INTO players VALUES (?, ?, ?, ?)',
-                            (student.id, student.name, student.age, student.grade))
+        print(student)
+        self.cursor.execute('''INSERT INTO student (id, matricula, name, last_name, age, gender, grade, mail) VALUES  (%s, %s, %s, %s, %s, %s, %s, %s)''',
+                            (student.id, student.matricula, student.name, student.last_name, student.age, student.gender, student.grade, student.mail))
         self.conn.commit()
 
     def updateStudent(self, student):
