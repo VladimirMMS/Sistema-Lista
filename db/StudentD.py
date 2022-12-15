@@ -1,4 +1,4 @@
-from models.studentM import Student
+from db.models.studentM import Student
 
 
 class StudentD:

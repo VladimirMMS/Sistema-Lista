@@ -2,8 +2,8 @@ import os
 import psycopg2
 from dotenv import load_dotenv
 
-from StudentD import StudentD
-from listD import ListD
+from db.studentD import StudentD
+from db.listD import ListD
 
 load_dotenv()
 
