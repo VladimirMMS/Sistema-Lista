@@ -1,5 +1,11 @@
 import cv2 as cv
 import os
+import socket
+import datetime
+import email
+import yagmail
+import datetime
+import sys
 
 def scan_student():
     data_ruta='C:/Users/vladi/OneDrive/Desktop/Sistema-Lista/data'
@@ -25,6 +31,16 @@ def scan_student():
             if result[1] < 5500:
                 name = dataList[result[0]].split("-")[0]
                 #condicional para el email
+                #Declaracion de correo
+                email='fefitoarto@gmail.com'
+                contraseña='wsosapnursnggdhq'
+                filename = datetime.datetime.now()
+                yag=yagmail.SMTP(user=email, password=contraseña)
+                #Enviar documento con ip
+                destinatarios = ['fefitoarto@gmail.com']
+                asunto = 'Asistencia Diaria'
+                filename = filename.strftime("%d %B %Y")+".txt"
+                yag.send(destinatarios,asunto, attachments=[filename])
                 cv.putText(frame, '{}'.format(name), (x, y-20), 1, 1.3, (0, 255, 0), 2, cv.LINE_AA)            
                 cv.rectangle(frame, (x,y), (x+e1, y+e2), (255, 0, 0), 2)
             else:
