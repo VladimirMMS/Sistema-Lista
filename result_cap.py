@@ -24,7 +24,7 @@ def scan_student():
             cv.putText(frame, '{}'.format(result), (x, y-5), 1, 1.2, (0, 255, 0), 2, cv.LINE_AA)
             if result[1] < 5500:
                 name = dataList[result[0]].split("-")[0]
-                print(dataList[result[0]])
+                #condicional para el email
                 cv.putText(frame, '{}'.format(name), (x, y-20), 1, 1.3, (0, 255, 0), 2, cv.LINE_AA)            
                 cv.rectangle(frame, (x,y), (x+e1, y+e2), (255, 0, 0), 2)
             else:
