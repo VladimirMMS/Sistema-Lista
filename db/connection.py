@@ -33,3 +33,4 @@ class Database:
     def close(self):
         self.conn.close()
         self.cursor.close()
+

@@ -28,16 +28,14 @@ class StudentD:
         for id, name, age, grade in self.cursor.fetchall():
             studets.append(Student(id, name, age, grade))
 
-        return studets
+    #    self.conn.commit()
 
     def getStudentEmail(self, student):
         self.cursor.execute(
-            '''SELECT email FROM student WHERE matricula = %s''', (student.matricula))
-        studets = []
-        for name, email in self.cursor.fetchone():
-            studets.append(Student(name, email))
+            "SELECT mail FROM student WHERE name= %s", [student])
 
-        return studets
+        students = self.cursor.fetchone()()
+        return students
 
     def setStudents(self, student):
         self.cursor.execute('''INSERT INTO student (id, matricula, name, last_name, age, gender, grade, mail) VALUES  (%s, %s, %s, %s, %s, %s, %s, %s)''',

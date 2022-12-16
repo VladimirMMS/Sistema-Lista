@@ -12,11 +12,11 @@ def entry_cap(name, matricula, window):
     window.destroy()
     second_window = Tk()
     model='data/{}-{}'.format(name, matricula)
-    ruta1='C:/Users/Intellisys/Documents/HelloWorld/python/Sistema-Lista/data'
+    ruta1='C:/Users/DELL/Desktop/Sistema-Lista/data'
     ruta_completa=ruta1+'/{}'.format(model)
     if not os.path.exists(ruta_completa):
         os.makedirs(ruta_completa)
-    ruidos=cv.CascadeClassifier(r"C:/Users/vladi/OneDrive/Desktop/opencv/data/haarcascades/haarcascade_frontalface_default.xml")
+    ruidos=cv.CascadeClassifier(r"C:C:/Users/DELL/Desktop/Sistema-Lista/data/haarcascades/haarcascade_frontalface_default.xml")
     camara= cv.VideoCapture(0)
     id=1
     while True:

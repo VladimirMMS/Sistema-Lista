@@ -12,13 +12,12 @@ from db.connection import Database
 
 database = Database()
 def scan_student():
-    email =  database.student.getStudentEmail()
-    data_ruta='C:/Users/Intellisys/Documents/HelloWorld/python/Sistema-Lista/data'
+    data_ruta='C:/Users/DELL/Desktop/Sistema-Lista/data'
     dataList=os.listdir(data_ruta)
 
     trainingModel=cv.face.EigenFaceRecognizer_create()
     trainingModel.read('training_eigen_face_recognizer.xml')
-    ruidos=cv.CascadeClassifier(r"C:\Users\Intellisys\Desktop\openCV\opencv\data\haarcascades\haarcascade_frontalface_default.xml")
+    ruidos=cv.CascadeClassifier(r"C:\Users\DELL\Desktop\Sistema-Lista\data\haarcascades\haarcascade_frontalface_default.xml")
     Camera=cv.VideoCapture(0)
 
     Camera = cv.VideoCapture(0)
@@ -35,6 +34,8 @@ def scan_student():
             cv.putText(frame, '{}'.format(result), (x, y-5), 1, 1.2, (0, 255, 0), 2, cv.LINE_AA)
             if result[1] < 6500:
                 name = dataList[result[0]].split("-")[0]
+                email = database.student.getStudentEmail(name)
+
                 count=count+1
                 cv.putText(frame, '{}'.format(name), (x, y-20), 1, 1.3, (0, 255, 0), 2, cv.LINE_AA)            
                 cv.rectangle(frame, (x,y), (x+e1, y+e2), (255, 0, 0), 2)
