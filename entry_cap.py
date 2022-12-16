@@ -41,4 +41,4 @@ def entry_cap(name, matricula, window):
     cv.destroyAllWindows()
     hiden_training_cap(second_window)
 
-# database.close()
+# database.close()``

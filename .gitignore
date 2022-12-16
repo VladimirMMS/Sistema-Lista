@@ -1,2 +1,3 @@
 training_eigen_face_recognizer.xml
 data
+.env

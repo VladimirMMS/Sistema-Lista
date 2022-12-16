@@ -14,14 +14,14 @@ def student_form():
         matricula = createId()
         name = name_data.get()
         lastname = lastname_data.get()
-        age = age_data.get()
+        age = int(age_data.get())
         gender = gender_data.get()
         grade = grade_data.get()
         mail = mail_data.get()
-        student = Student(id, matricula, name, lastname, age, gender, grade, mail)
+        student = Student(id, matricula, name, lastname,  gender, age, grade, mail)
         database.student.setStudents(student)
+        entry_cap(name_data, matricula, mywindow)
         database.close()
-        # entry_cap(name_data, matricula.hex, mywindow)
 
 
     

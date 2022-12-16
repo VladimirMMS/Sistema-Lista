@@ -5,11 +5,14 @@ import datetime
 import email
 import yagmail
 import sys
+import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import smtplib
+from db.connection import Database
 
+database = Database()
 def scan_student():
+    email =  database.student.getStudentEmail()
     data_ruta='C:/Users/Intellisys/Documents/HelloWorld/python/Sistema-Lista/data'
     dataList=os.listdir(data_ruta)
 
@@ -41,7 +44,7 @@ def scan_student():
                     Hora=datetime.datetime.now()
                     message = MIMEMultipart()
                     message["from"] = "Instituto"
-                    message["to"] = "vladimirmercado2001@gmail.com"
+                    message["to"] = email
                     message["subject"] = "Asistencia Diaria"
                     message.attach(MIMEText("El estudiante {} ha llegado a clase a {}".format(name, str(Hora))))
                     with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
@@ -57,3 +60,5 @@ def scan_student():
             break
     Camera.release()
     cv.destroyAllWindows()
+
+database.close()
